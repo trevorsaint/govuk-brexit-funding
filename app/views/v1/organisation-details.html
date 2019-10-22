@@ -9,7 +9,7 @@
 {% block beforeContent %}
 {{ govukBackLink({
   text: "Back",
-  href: "/v1/contact-information"
+  href: "/v1/organisation-type"
 }) }}
 {% endblock %}
 
@@ -24,20 +24,25 @@
 
       <form method="post">
 
-        <!-- Organisation name -->
+        <!-- Name -->
         {{ govukInput({
           label: {
-            text: "Organisation name"
+            text: "Name",
+            classes: "govuk-label--s"
+          },
+          hint: {
+            text: "Provide the organisation name as it appears on your grant agreement."
           },
           id: "organisation-name",
-          name: "organisation-name"
+          name: "organisation-name",
+          value: data["organisation-name"]
         }) }}
 
-        <!-- Organisation address -->
+        <!-- Address -->
         {% call govukFieldset({
           legend: {
             text: "Address",
-            classes: "govuk-fieldset__legend--m"
+            classes: "govuk-fieldset__legend--s"
           }
         }) %}
 
@@ -46,7 +51,8 @@
             html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
           },
           id: "address-line-1",
-          name: "address-line-1"
+          name: "address-line-1",
+          value: data["address-line-1"]
         }) }}
 
         {{ govukInput({
@@ -54,7 +60,8 @@
             html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
           },
           id: "address-line-2",
-          name: "address-line-2"
+          name: "address-line-2",
+          value: data["address-line-2"]
         }) }}
 
         {{ govukInput({
@@ -63,7 +70,8 @@
           },
           classes: "govuk-!-width-two-thirds",
           id: "address-town",
-          name: "address-town"
+          name: "address-town",
+          value: data["address-town"]
         }) }}
 
         {{ govukInput({
@@ -72,7 +80,8 @@
           },
           classes: "govuk-!-width-two-thirds",
           id: "address-county",
-          name: "address-county"
+          name: "address-county",
+          value: data["address-county"]
         }) }}
 
         {{ govukInput({
@@ -81,7 +90,8 @@
           },
           classes: "govuk-input--width-10",
           id: "address-postcode",
-          name: "address-postcode"
+          name: "address-postcode",
+          value: data["address-postcode"]
         }) }}
 
       {% endcall %}

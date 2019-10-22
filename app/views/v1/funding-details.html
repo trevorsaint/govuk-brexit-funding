@@ -9,7 +9,7 @@
 {% block beforeContent %}
 {{ govukBackLink({
   text: "Back",
-  href: "/v1/your-organisation"
+  href: "/v1/organisation-details"
 }) }}
 {% endblock %}
 
@@ -20,9 +20,7 @@
 
   <div class="govuk-grid-column-two-thirds">
 
-
     <h1 class="govuk-heading-xl">Funding details</h1>
-
 
     <form method="post">
 
@@ -30,13 +28,14 @@
       {{ govukInput({
         label: {
           text: "Grant agreement number",
-          classes: "govuk-label--m"
+          classes: "govuk-label--s"
         },
         hint: {
           text: "This should be found at the top of your grant agreement."
         },
         id: "grant-agreement-number",
-        name: "grant-agreement-number"
+        name: "grant-agreement-number",
+        value: data['grant-agreement-number']
       }) }}
 
 
@@ -47,7 +46,7 @@
         fieldset: {
           legend: {
             text: "Name of scheme",
-            classes: "govuk-fieldset__legend--m"
+            classes: "govuk-fieldset__legend--s"
           }
         },
         hint: {
@@ -56,39 +55,48 @@
         items: [
           {
             value: "",
-            text: "Europe for Citizens"
+            text: "Europe for Citizens",
+            checked: checked('name-of-scheme', 'Europe for Citizens')
           },
           {
-            value: "",
-            text: "Connecting Europe Facility, Telecoms (CEF)"
+            value: "Connecting Europe Facility, Telecoms (CEF)",
+            text: "Connecting Europe Facility, Telecoms (CEF)",
+            checked: checked('name-of-scheme', 'Connecting Europe Facility, Telecoms (CEF)')
           },
           {
-            value: "",
-            text: "Creative Europe"
+            value: "Creative Europe",
+            text: "Creative Europe",
+            checked: checked('name-of-scheme', 'Creative Europe')
           },
           {
-            value: "",
-            text: "Health for Growth"
+            value: "Health for Growth",
+            text: "Health for Growth",
+            checked: checked('name-of-scheme', 'Health for Growth')
           },
           {
-            value: "",
-            text: "Employment and Social Innovation (EaSI)"
+            value: "Employment and Social Innovation (EaSI)",
+            text: "Employment and Social Innovation (EaSI)",
+            checked: checked('name-of-scheme', 'Employment and Social Innovation (EaSI)')
           },
           {
-            value: "",
-            text: "RECP"
+            value: "RECP",
+            text: "RECP",
+            checked: checked('name-of-scheme', 'RECP')
           },
           {
-            value: "",
-            text: "Erasmus+"
+            value: "Erasmus+",
+            text: "Erasmus+",
+            checked: checked('name-of-scheme', 'Erasmus+')
           },
           {
-            value: "",
-            text: "European Solidarity Corps"
+            value: "European Solidarity Corps",
+            text: "European Solidarity Corps",
+            checked: checked('name-of-scheme', 'European Solidarity Corps')
           },
           {
-            value: "",
-            text: "Competitiveness of Small and Medium-Sized Enterprises (COSME)"
+            value: "Competitiveness of Small and Medium-Sized Enterprises (COSME)",
+            text: "Competitiveness of Small and Medium-Sized Enterprises (COSME)",
+            checked: checked('name-of-scheme', 'Competitiveness of Small and Medium-Sized Enterprises (COSME)')
           }
         ]
       }) }}
@@ -98,27 +106,29 @@
       {{ govukInput({
         label: {
           text: "Project name",
-          classes: "govuk-label--m"
+          classes: "govuk-label--s"
         },
         hint: {
           text: "The name of your project as used in your proposal and stated on the individual grant agreement / bid."
         },
         id: "project-name",
-        name: "project-name"
+        name: "project-name",
+        value: data['project-name']
       }) }}
 
 
-      <!-- Project name -->
+      <!-- EU funding contribution -->
       {{ govukInput({
         label: {
           text: "EU funding contribution for above project (€):",
-          classes: "govuk-label--m"
+          classes: "govuk-label--s"
         },
         hint: {
           text: "The total amount in euros granted to your organisation at the point of the award for your project."
         },
-        id: "grant-agreement-number",
-        name: "grant-agreement-number"
+        id: "funding-contribution",
+        name: "funding-contribution",
+        value: data['funding-contribution']
       }) }}
 
 
@@ -129,7 +139,7 @@
         fieldset: {
           legend: {
             text: "Project start date",
-            classes: "govuk-fieldset__legend--m"
+            classes: "govuk-fieldset__legend--s"
           }
         },
         hint: {
@@ -145,7 +155,7 @@
         fieldset: {
           legend: {
             text: "Project end date",
-            classes: "govuk-fieldset__legend--m"
+            classes: "govuk-fieldset__legend--s"
           }
         },
         hint: {
@@ -154,13 +164,13 @@
       }) }}
 
 
+      <!-- Submit -->
       {{ govukButton({
         text: "Next"
       }) }}
 
 
     </form>
-
 
   </div>
 

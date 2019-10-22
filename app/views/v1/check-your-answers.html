@@ -2,7 +2,7 @@
 
 
 {% block pageTitle %}
-  Check your answers - GOV.UK
+  Check your answers before sending your application - GOV.UK
 {% endblock %}
 
 
@@ -21,24 +21,26 @@
 
       <h1 class="govuk-heading-xl">Check your answers before sending your application</h1>
 
+
+      <!-- Contact information -->
       <h2 class="govuk-heading-m">Contact infomation</h2>
 
       {{ govukSummaryList({
-        classes: 'govuk-!-margin-bottom-9',
+        classes: "govuk-!-margin-bottom-9",
         rows: [
           {
             key: {
-              text: "Name"
+              text: "Full name"
             },
             value: {
-              text: ""
+              text: data["full-name"]
             },
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "/v1/contact-information",
                   text: "Change",
-                  visuallyHiddenText: "name"
+                  visuallyHiddenText: "full name"
                 }
               ]
             }
@@ -48,12 +50,12 @@
               text: "Job title"
             },
             value: {
-              text: ""
+              text: data["job-title"]
             },
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "/v1/contact-information",
                   text: "Change",
                   visuallyHiddenText: "job title"
                 }
@@ -65,12 +67,12 @@
               text: "Email address"
             },
             value: {
-              text: ""
+              text: data["email-address"]
             },
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "/v1/contact-information",
                   text: "Change",
                   visuallyHiddenText: "email address"
                 }
@@ -82,14 +84,14 @@
               text: "Telephone number"
             },
             value: {
-              text: ""
+              text: data["telephone-number"]
             },
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "/v1/contact-information",
                   text: "Change",
-                  visuallyHiddenText: "telephone"
+                  visuallyHiddenText: "telephone number"
                 }
               ]
             }
@@ -97,51 +99,53 @@
         ]
       }) }}
 
-      <h2 class="govuk-heading-m">Application details</h2>
+
+      <!-- Organisation type -->
+      <h2 class="govuk-heading-m">Organisation details</h2>
 
       {{ govukSummaryList({
         classes: 'govuk-!-margin-bottom-9',
         rows: [
           {
             key: {
-              text: "Previous application number"
+              text: "Type"
             },
             value: {
-              text: "502135326"
+              text: data["organisation-type"]
             },
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "/v1/organisation-type",
                   text: "Change",
-                  visuallyHiddenText: "previous application number"
+                  visuallyHiddenText: "organisation type"
                 }
               ]
             }
           },
           {
             key: {
-              text: "Licence type"
+              text: "Name"
             },
             value: {
-              text: "For personal use"
+              text: data["organisation-name"]
             },
             actions: {
               items: [
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "licence type"
+                  visuallyHiddenText: "organisation name"
                 }
               ]
             }
           },
           {
             key: {
-              text: "Home address"
+              text: "Address"
             },
             value: {
-              html: "72 Guild Street<br>London<br>SE23 6FH"
+              html: data["address-line-1"]
             },
             actions: {
               items: [
@@ -152,20 +156,115 @@
                 }
               ]
             }
-          },
+          }
+        ]
+      }) }}
+
+
+      <!-- Funding details -->
+      <h2 class="govuk-heading-m">Funding details</h2>
+
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
           {
             key: {
-              text: "Licence period"
+              text: "Grant agreement number"
             },
             value: {
-              text: "Valid for 6 months"
+              text: data["grant-agreement-number"]
             },
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "/v1/funding-details",
                   text: "Change",
-                  visuallyHiddenText: "licence period"
+                  visuallyHiddenText: "grant agreement number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Name of scheme"
+            },
+            value: {
+              text: data["name-of-scheme"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "/v1/funding-details",
+                  text: "Change",
+                  visuallyHiddenText: "name of scheme"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Project name"
+            },
+            value: {
+              html: data["project-name"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "/v1/funding-details",
+                  text: "Change",
+                  visuallyHiddenText: "project name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "EU funding contribution"
+            },
+            value: {
+              html: data["funding-contribution"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "/v1/funding-details",
+                  text: "Change",
+                  visuallyHiddenText: "EU funding contribution"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Start date"
+            },
+            value: {
+              html: data["project-start-date"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "/v1/funding-details",
+                  text: "Change",
+                  visuallyHiddenText: "start date"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "End date"
+            },
+            value: {
+              html: data["project-end-date"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "/v1/funding-details",
+                  text: "Change",
+                  visuallyHiddenText: "end date"
                 }
               ]
             }
@@ -175,11 +274,11 @@
 
       <h2 class="govuk-heading-m">Now send your application</h2>
 
-      <p class="govuk-body">By submitting this notification you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+      <p class="govuk-body">By submitting this notification you authorise the Cabinet Office Grants Management Function to share your information with the responsible department to which you have identified yourself as a grant recipient.</p>
 
       <form method="post">
 
-        <!--input type="hidden" name="answers-checked" value="true"-->
+        <input type="hidden" name="answers-checked" value="true">
 
         {{ govukButton({
           text: "Accept and send"

@@ -20,6 +20,12 @@
 
   <div class="govuk-grid-column-two-thirds">
 
+    <h1 class="govuk-heading-xl">Organisation type</h1>
+
+    <p>Your organisation must be identified as a UK partner in the grant agreement to receive funding.</p>
+
+    <p>If your organisation type is not listed, please select ‘Other’.</p>
+
     <form method="post">
 
       {% set otherOrganisation %}
@@ -29,69 +35,75 @@
           type: "text",
           label: {
             text: "If other, please specify"
-          }
+          },
+          value: data["other-organisation"]
         }) }}
       {% endset -%}
 
+      <!-- Organisation type -->
       {{ govukRadios({
         idPrefix: "organisation-type",
         name: "organisation-type",
-        fieldset: {
-          legend: {
-            text: "Organisation type",
-            classes: "govuk-fieldset__legend--xl",
-            isPageHeading: true
-          }
-        },
         items: [
           {
             text: "Business",
+            value: "Business",
             label: {
               classes: "govuk-label--s"
             },
             hint: {
               text: "UK based businesses"
-            }
+            },
+            checked: checked('organisation-type', 'Business')
           },
           {
             text: "Research",
+            value: "Research",
             label: {
               classes: "govuk-label--s"
             },
             hint: {
               text: "Higher education and organisations registered with Je-S"
-            }
+            },
+            checked: checked('organisation-type', 'Research')
           },
           {
             text: "Research and technology organisation",
+            value: "Research and technology organisation",
             label: {
               classes: "govuk-label--s"
             },
             hint: {
               text: "Organisations which solely promote and conduct collaborative research and innovation"
-            }
+            },
+            checked: checked('organisation-type', 'Research and technology organisation')
           },
           {
             text: "Public sector, charity or non Je-S registered research organisation",
+            value: "Public sector, charity or non Je-S registered research organisation",
             label: {
               classes: "govuk-label--s"
             },
             hint: {
               text: "A not-for-profit public sector body or charity working on innovation"
-            }
+            },
+            checked: checked('organisation-type', 'Public sector, charity or non Je-S registered research organisation')
           },
           {
             text: "Other",
+            value: "Other",
             label: {
               classes: "govuk-label--s"
             },
             conditional: {
               html: otherOrganisation
-            }
+            },
+            checked: checked('organisation-type', 'Other')
           }
         ]
       }) }}
 
+      <!-- Submit -->
       {{ govukButton({
         text: "Next"
       }) }}

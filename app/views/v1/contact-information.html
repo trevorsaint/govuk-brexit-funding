@@ -22,55 +22,74 @@
 
     <h1 class="govuk-heading-xl">Contact information</h1>
 
+    <p>Who is the most appropriate person for us to contact about your grants award? We recommend your Legal Entity Appointed Representative (LEAR).</p>
+
     <form method="post">
 
+      <!-- Full name -->
       {{ govukInput({
         label: {
-          text: "Full name"
+          text: "Full name",
+          classes: "govuk-label--s"
         },
         id: "full-name",
         name: "full-name",
         autocomplete: "name",
         attributes: {
           spellcheck: "false"
-        }
+        },
+        value: data["full-name"]
       }) }}
 
+
+      <!-- Job title -->
       {{ govukInput({
         label: {
-          text: "Job title"
+          text: "Job title",
+          classes: "govuk-label--s"
         },
         id: "job-title",
-        name: "job-title"
+        name: "job-title",
+        value: data["job-title"]
       }) }}
 
+
+      <!-- Email address -->
       {{ govukInput({
         label: {
-          text: "Email address"
+          text: "Email address",
+          classes: "govuk-label--s"
         },
         hint: {
           text: "We’ll only use this to send you a receipt"
         },
-        id: "email",
-        name: "email",
+        id: "email-address",
+        name: "email-address",
         type: "email",
         autocomplete: "email",
         attributes: {
           spellcheck: "false"
-        }
+        },
+        value: data["email-address"]
       }) }}
 
+
+      <!-- Telephone number -->
       {{ govukInput({
         label: {
-          text: "UK telephone number"
+          text: "UK telephone number",
+          classes: "govuk-label--s"
         },
         id: "telephone-number",
         name: "telephone-number",
         type: "tel",
         autocomplete: "tel",
-        classes: "govuk-input--width-20"
+        classes: "govuk-input--width-20",
+        value: data["telephone-number"]
       }) }}
 
+
+      <!-- Submit -->
       {{ govukButton({
         text: "Next"
       }) }}
