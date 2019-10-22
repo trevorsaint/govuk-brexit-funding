@@ -15,25 +15,31 @@ router.post('/v1', function(req, res) {
 });
 
 
-// Contact information
+// Contact information > Organisation type
 router.post('/v1/contact-information',function(req, res) {
-  res.redirect('your-organisation');
+  res.redirect('organisation-type');
 });
 
 
-// Your organisation
-router.post('/v1/your-organisation',function(req, res) {
+// Organisation type > Organisation details
+router.post('/v1/organisation-type',function(req, res) {
+  res.redirect('organisation-details');
+});
+
+
+// Organisation details > Funding details
+router.post('/v1/organisation-details',function(req, res) {
   res.redirect('funding-details');
 });
 
 
-// Funding details
+// Funding details > Check your answers
 router.post('/v1/funding-details',function(req, res) {
   res.redirect('check-your-answers');
 });
 
 
-// Check your answers
+// Check your answers > Confirmation
 router.post('/v1/check-your-answers',function(req, res) {
   res.redirect('confirmation');
 });

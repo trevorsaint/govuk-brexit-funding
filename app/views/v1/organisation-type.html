@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+
+
+{% block pageTitle %}
+  Organisation type - GOV.UK
+{% endblock %}
+
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "/v1/contact-information"
+}) }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post">
+
+      {% set otherOrganisation %}
+        {{ govukInput({
+          id: "other-organisation",
+          name: "other-organisation",
+          type: "text",
+          label: {
+            text: "If other, please specify"
+          }
+        }) }}
+      {% endset -%}
+
+      {{ govukRadios({
+        idPrefix: "organisation-type",
+        name: "organisation-type",
+        fieldset: {
+          legend: {
+            text: "Organisation type",
+            classes: "govuk-fieldset__legend--xl",
+            isPageHeading: true
+          }
+        },
+        items: [
+          {
+            text: "Business",
+            label: {
+              classes: "govuk-label--s"
+            },
+            hint: {
+              text: "UK based businesses"
+            }
+          },
+          {
+            text: "Research",
+            label: {
+              classes: "govuk-label--s"
+            },
+            hint: {
+              text: "Higher education and organisations registered with Je-S"
+            }
+          },
+          {
+            text: "Research and technology organisation",
+            label: {
+              classes: "govuk-label--s"
+            },
+            hint: {
+              text: "Organisations which solely promote and conduct collaborative research and innovation"
+            }
+          },
+          {
+            text: "Public sector, charity or non Je-S registered research organisation",
+            label: {
+              classes: "govuk-label--s"
+            },
+            hint: {
+              text: "A not-for-profit public sector body or charity working on innovation"
+            }
+          },
+          {
+            text: "Other",
+            label: {
+              classes: "govuk-label--s"
+            },
+            conditional: {
+              html: otherOrganisation
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Next"
+      }) }}
+
+    </form>
+
+  </div>
+
+</div>
+
+{% endblock %}

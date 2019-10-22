@@ -20,15 +20,147 @@
 
   <div class="govuk-grid-column-two-thirds">
 
+
     <h1 class="govuk-heading-xl">Funding details</h1>
 
+
     <form method="post">
+
+      <!-- Grant agreement number -->
+      {{ govukInput({
+        label: {
+          text: "Grant agreement number",
+          classes: "govuk-label--m"
+        },
+        hint: {
+          text: "This should be found at the top of your grant agreement."
+        },
+        id: "grant-agreement-number",
+        name: "grant-agreement-number"
+      }) }}
+
+
+      <!-- Name of scheme -->
+      {{ govukRadios({
+        idPrefix: "name-of-scheme",
+        name: "name-of-scheme",
+        fieldset: {
+          legend: {
+            text: "Name of scheme",
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        hint: {
+          text: "Select the funding scheme you applied for."
+        },
+        items: [
+          {
+            value: "",
+            text: "Europe for Citizens"
+          },
+          {
+            value: "",
+            text: "Connecting Europe Facility, Telecoms (CEF)"
+          },
+          {
+            value: "",
+            text: "Creative Europe"
+          },
+          {
+            value: "",
+            text: "Health for Growth"
+          },
+          {
+            value: "",
+            text: "Employment and Social Innovation (EaSI)"
+          },
+          {
+            value: "",
+            text: "RECP"
+          },
+          {
+            value: "",
+            text: "Erasmus+"
+          },
+          {
+            value: "",
+            text: "European Solidarity Corps"
+          },
+          {
+            value: "",
+            text: "Competitiveness of Small and Medium-Sized Enterprises (COSME)"
+          }
+        ]
+      }) }}
+
+
+      <!-- Project name -->
+      {{ govukInput({
+        label: {
+          text: "Project name",
+          classes: "govuk-label--m"
+        },
+        hint: {
+          text: "The name of your project as used in your proposal and stated on the individual grant agreement / bid."
+        },
+        id: "project-name",
+        name: "project-name"
+      }) }}
+
+
+      <!-- Project name -->
+      {{ govukInput({
+        label: {
+          text: "EU funding contribution for above project (€):",
+          classes: "govuk-label--m"
+        },
+        hint: {
+          text: "The total amount in euros granted to your organisation at the point of the award for your project."
+        },
+        id: "grant-agreement-number",
+        name: "grant-agreement-number"
+      }) }}
+
+
+      <!-- Project start date -->
+      {{ govukDateInput({
+        id: "project-start-date",
+        namePrefix: "project-start-date",
+        fieldset: {
+          legend: {
+            text: "Project start date",
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        hint: {
+          text: "For example, 22 10 2019"
+        }
+      }) }}
+
+
+      <!-- Project end date -->
+      {{ govukDateInput({
+        id: "project-end-date",
+        namePrefix: "project-end-date",
+        fieldset: {
+          legend: {
+            text: "Project end date",
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        hint: {
+          text: "For example, 22 10 2019"
+        }
+      }) }}
+
 
       {{ govukButton({
         text: "Next"
       }) }}
 
+
     </form>
+
 
   </div>
 
