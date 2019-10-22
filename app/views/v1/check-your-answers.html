@@ -145,7 +145,8 @@
               text: "Address"
             },
             value: {
-              html: data["address-line-1"]
+              html:
+                data["address-line-1"] + "<br>" + data["address-town"] + "<br>" + data["address-county"] + "<br>" + data["address-postcode"]
             },
             actions: {
               items: [
@@ -240,7 +241,7 @@
               text: "Start date"
             },
             value: {
-              html: data["project-start-date"]
+              html: data["project-start-date-day"] + " " + data["project-start-date-month"] + " " + data["project-start-date-year"]
             },
             actions: {
               items: [
@@ -257,7 +258,7 @@
               text: "End date"
             },
             value: {
-              html: data["project-end-date"]
+              html: data["project-end-date-day"] + " " + data["project-end-date-month"] + " " + data["project-end-date-year"]
             },
             actions: {
               items: [
@@ -285,6 +286,8 @@
         }) }}
 
       </form>
+
+      <p>Debug: {{ fullName }}</p>
 
     </div>
 

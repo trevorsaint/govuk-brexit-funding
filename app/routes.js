@@ -1,12 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-
-// Contains any function
-function containsAny(source, target) {
-  var result = source.filter(function(item) { return target.indexOf(item) > -1 });
-  return (result.length > 0);
-}
+const helpers = require('./helpers');
 
 
 // Start page
@@ -30,6 +25,18 @@ router.post('/v1/organisation-type',function(req, res) {
 // Organisation details > Funding details
 router.post('/v1/organisation-details',function(req, res) {
   res.redirect('funding-details');
+});
+
+
+// Check your answers with session data
+router.get('/v1/check-your-answers', function(req, res) {
+
+  var pageObject = {
+   fullName: req.session.data['full-name']
+  }
+
+  res.render('v1/check-your-answers', pageObject);
+
 });
 
 
