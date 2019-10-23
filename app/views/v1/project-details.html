@@ -65,7 +65,20 @@
         },
         hint: {
           text: "For example, 12 11 2014"
-        }
+        },
+        items: [{
+          name: "day",
+          value: data["start-date-day"],
+          classes: "govuk-input--width-2"
+        },{
+          name: "month",
+          value: data["start-date-month"],
+          classes: "govuk-input--width-2"
+        },{
+          name: "year",
+          value: data["start-date-year"],
+          classes: "govuk-input--width-4"
+        }]
       }) }}
 
       <!-- End date -->
@@ -80,7 +93,20 @@
         },
         hint: {
           text: "For example, 12 11 2020"
-        }
+        },
+        items: [{
+          name: "day",
+          value: data["end-date-day"],
+          classes: "govuk-input--width-2"
+        },{
+          name: "month",
+          value: data["end-date-month"],
+          classes: "govuk-input--width-2"
+        },{
+          name: "year",
+          value: data["end-date-year"],
+          classes: "govuk-input--width-4"
+        }]
       }) }}
 
       <!-- Submit -->
