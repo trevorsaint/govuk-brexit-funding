@@ -235,17 +235,17 @@
           },
           {
             key: {
-              text: "Grant amount"
+              text: "Total amount awarded"
             },
             value: {
-              html: data["funding-contribution"]
+              html: data["total-amount-awarded"] + " euros"
             },
             actions: {
               items: [
                 {
                   href: "/v1/project-details",
                   text: "Change",
-                  visuallyHiddenText: "grant amount"
+                  visuallyHiddenText: "total amount awarded"
                 }
               ]
             }
@@ -289,7 +289,7 @@
 
       <h2 class="govuk-heading-m">Now send your details</h2>
 
-      <p class="govuk-body">By submitting this form you authorise the Cabinet Office Grants Management Function to share your information with the government department responsible for the fund you’ve said you receive.</p>
+      <p class="govuk-body">By submitting this form you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
 
       <form method="post">
 
