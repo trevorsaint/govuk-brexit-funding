@@ -1,4 +1,8 @@
+const moment = require('moment');
+
+
 module.exports = function (env) {
+
   /**
    * Instantiate object used to store the methods registered as a
    * 'filter' (of the same name) within nunjucks. You can override
@@ -37,6 +41,37 @@ module.exports = function (env) {
     documentation.
 
   ------------------------------------------------------------------ */
+
+
+  /* ------------------------------------------------------------------
+     date filter for use in Nunjucks
+     example: {{ params.date | date("DD/MM/YYYY") }}
+     outputs: 01/01/1970
+   ------------------------------------------------------------------ */
+   filters.date = function(timestamp, format) {
+    return moment(timestamp).format(format);
+  }
+
+  /* ------------------------------------------------------------------
+    utility functions for use in mojDate function/filter
+  ------------------------------------------------------------------ */
+  filters.govDate = function(timestamp) {
+    return moment(timestamp).format('D MMMM YYYY');
+  }
+
+  filters.govShortDate = function(timestamp) {
+    return moment(timestamp).format('D MMM YYYY');
+  }
+
+  filters.govTime = function(timestamp) {
+    let t = moment(timestamp);
+    if(t.minutes() > 0) {
+      return t.format('h:mma');
+    } else {
+      return t.format('ha');
+    }
+  }
+
 
   /* ------------------------------------------------------------------
     keep the following line to return your filters to the app
