@@ -2,14 +2,14 @@
 
 
 {% block pageTitle %}
-  Check your answers before sending your application - GOV.UK
+  Check your answers - GOV.UK
 {% endblock %}
 
 
 {% block beforeContent %}
 {{ govukBackLink({
   text: "Back",
-  href: "/v1/funding-details"
+  href: "/v1/project-details"
 }) }}
 {% endblock %}
 
@@ -19,11 +19,10 @@
 
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
-      <h1 class="govuk-heading-xl">Check your answers before sending your application</h1>
+      <h1 class="govuk-heading-xl">Check your answers</h1>
 
-
-      <!-- Contact information -->
-      <h2 class="govuk-heading-m">Contact infomation</h2>
+      <!-- Who should we contact about the grant award? -->
+      <h2 class="govuk-heading-m">Who should we contact about the grant award?</h2>
 
       {{ govukSummaryList({
         classes: "govuk-!-margin-bottom-9",
@@ -38,7 +37,7 @@
             actions: {
               items: [
                 {
-                  href: "/v1/contact-information",
+                  href: "/v1/who-should-we-contact-about-the-grant-award",
                   text: "Change",
                   visuallyHiddenText: "full name"
                 }
@@ -55,7 +54,7 @@
             actions: {
               items: [
                 {
-                  href: "/v1/contact-information",
+                  href: "/v1/who-should-we-contact-about-the-grant-award",
                   text: "Change",
                   visuallyHiddenText: "job title"
                 }
@@ -72,7 +71,7 @@
             actions: {
               items: [
                 {
-                  href: "/v1/contact-information",
+                  href: "/v1/who-should-we-contact-about-the-grant-award",
                   text: "Change",
                   visuallyHiddenText: "email address"
                 }
@@ -89,7 +88,7 @@
             actions: {
               items: [
                 {
-                  href: "/v1/contact-information",
+                  href: "/v1/who-should-we-contact-about-the-grant-award",
                   text: "Change",
                   visuallyHiddenText: "telephone number"
                 }
@@ -99,9 +98,8 @@
         ]
       }) }}
 
-
-      <!-- Organisation type -->
-      <h2 class="govuk-heading-m">Organisation details</h2>
+      <!-- Organisation -->
+      <h2 class="govuk-heading-m">Organisation</h2>
 
       {{ govukSummaryList({
         classes: 'govuk-!-margin-bottom-9',
@@ -125,6 +123,23 @@
           },
           {
             key: {
+              text: "Company House or Charity Commission number"
+            },
+            value: {
+              text: data["company-house-or-charity-commission-number"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "/v1/organisation-details",
+                  text: "Change",
+                  visuallyHiddenText: "Company House or Charity Commission number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
               text: "Name"
             },
             value: {
@@ -133,7 +148,7 @@
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "/v1/organisation-details",
                   text: "Change",
                   visuallyHiddenText: "organisation name"
                 }
@@ -151,9 +166,9 @@
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "/v1/organisation-details",
                   text: "Change",
-                  visuallyHiddenText: "home address"
+                  visuallyHiddenText: "organisation address"
                 }
               ]
             }
@@ -161,9 +176,8 @@
         ]
       }) }}
 
-
-      <!-- Funding details -->
-      <h2 class="govuk-heading-m">Funding details</h2>
+      <!-- Funding -->
+      <h2 class="govuk-heading-m">Funding</h2>
 
       {{ govukSummaryList({
         classes: 'govuk-!-margin-bottom-9',
@@ -178,7 +192,7 @@
             actions: {
               items: [
                 {
-                  href: "/v1/funding-details",
+                  href: "/v1/what-is-the-grant-agreement-number",
                   text: "Change",
                   visuallyHiddenText: "grant agreement number"
                 }
@@ -187,17 +201,17 @@
           },
           {
             key: {
-              text: "Name of scheme"
+              text: "Programme"
             },
             value: {
-              text: data["name-of-scheme"]
+              text: data["name-of-programme"]
             },
             actions: {
               items: [
                 {
-                  href: "/v1/funding-details",
+                  href: "/v1/what-programme-do-you-receive-funding-from",
                   text: "Change",
-                  visuallyHiddenText: "name of scheme"
+                  visuallyHiddenText: "name of programme"
                 }
               ]
             }
@@ -212,7 +226,7 @@
             actions: {
               items: [
                 {
-                  href: "/v1/funding-details",
+                  href: "/v1/project-details",
                   text: "Change",
                   visuallyHiddenText: "project name"
                 }
@@ -221,17 +235,17 @@
           },
           {
             key: {
-              text: "EU funding contribution"
+              text: "Total amount awarded"
             },
             value: {
-              html: data["funding-contribution"]
+              html: data["total-amount-awarded"] + " euros"
             },
             actions: {
               items: [
                 {
-                  href: "/v1/funding-details",
+                  href: "/v1/project-details",
                   text: "Change",
-                  visuallyHiddenText: "EU funding contribution"
+                  visuallyHiddenText: "total amount awarded"
                 }
               ]
             }
@@ -241,12 +255,12 @@
               text: "Start date"
             },
             value: {
-              html: data["project-start-date-day"] + " " + data["project-start-date-month"] + " " + data["project-start-date-year"]
+              text: (data["start-date-year"] + "-" + data["start-date-month"] + "-" + data["start-date-day"]) | govDate
             },
             actions: {
               items: [
                 {
-                  href: "/v1/funding-details",
+                  href: "/v1/project-details",
                   text: "Change",
                   visuallyHiddenText: "start date"
                 }
@@ -258,12 +272,12 @@
               text: "End date"
             },
             value: {
-              html: data["project-end-date-day"] + " " + data["project-end-date-month"] + " " + data["project-end-date-year"]
+              text: (data["end-date-year"] + "-" + data["end-date-month"] + "-" + data["end-date-day"]) | govDate
             },
             actions: {
               items: [
                 {
-                  href: "/v1/funding-details",
+                  href: "/v1/project-details",
                   text: "Change",
                   visuallyHiddenText: "end date"
                 }
@@ -273,9 +287,9 @@
         ]
       }) }}
 
-      <h2 class="govuk-heading-m">Now send your application</h2>
+      <h2 class="govuk-heading-m">Now send your details</h2>
 
-      <p class="govuk-body">By submitting this notification you authorise the Cabinet Office Grants Management Function to share your information with the responsible department to which you have identified yourself as a grant recipient.</p>
+      <p class="govuk-body">By submitting this form you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
 
       <form method="post">
 
