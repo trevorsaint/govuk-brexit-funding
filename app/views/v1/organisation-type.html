@@ -24,8 +24,6 @@
 
     <p>The organisation must be a UK partner in the grant agreement.</p>
 
-    <p>If your organisation type is not listed, select ‘Other’.</p>
-
     <form method="post">
 
       {% set otherOrganisation %}
@@ -34,7 +32,7 @@
           name: "other-organisation",
           type: "text",
           label: {
-            text: "If other, please specify"
+            text: "Type of organisation"
           },
           value: data["other-organisation"]
         }) }}
@@ -63,7 +61,7 @@
               classes: "govuk-label--s"
             },
             hint: {
-              text: "Higher education and organisations registered with Je-S"
+              text: "Higher education institutions and organisations registered with Je-S"
             },
             checked: checked('organisation-type', 'Research')
           },
@@ -85,7 +83,7 @@
               classes: "govuk-label--s"
             },
             hint: {
-              text: "A not for profit public sector body or charity working on innovation"
+              text: "Not for profit public sector bodies or charities working on innovation"
             },
             checked: checked('organisation-type', 'Public sector, charity or non Je-S registered research organisation')
           },

@@ -38,6 +38,23 @@
           value: data["organisation-name"]
         }) }}
 
+
+        <!-- Company House or Charity Commission number -->
+        {{ govukInput({
+          id: "company-house-or-charity-commission-number",
+          name: "company-house-or-charity-commission-number",
+          type: "text",
+          label: {
+            text: "Company House or Charity Commission number",
+            classes: "govuk-label--s"
+          },
+          hint: {
+            text: "If you have both, enter your Company House number"
+          },
+          value: data["company-house-or-charity-commission-number"]
+        }) }}
+
+
         <!-- Address -->
         {% call govukFieldset({
           legend: {

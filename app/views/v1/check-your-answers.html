@@ -21,7 +21,6 @@
 
       <h1 class="govuk-heading-xl">Check your answers</h1>
 
-
       <!-- Who should we contact about the grant award? -->
       <h2 class="govuk-heading-m">Who should we contact about the grant award?</h2>
 
@@ -99,7 +98,6 @@
         ]
       }) }}
 
-
       <!-- Organisation -->
       <h2 class="govuk-heading-m">Organisation</h2>
 
@@ -119,6 +117,23 @@
                   href: "/v1/organisation-type",
                   text: "Change",
                   visuallyHiddenText: "organisation type"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Company House or Charity Commission number"
+            },
+            value: {
+              text: data["company-house-or-charity-commission-number"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "/v1/organisation-details",
+                  text: "Change",
+                  visuallyHiddenText: "Company House or Charity Commission number"
                 }
               ]
             }
@@ -153,14 +168,13 @@
                 {
                   href: "/v1/organisation-details",
                   text: "Change",
-                  visuallyHiddenText: "home address"
+                  visuallyHiddenText: "organisation address"
                 }
               ]
             }
           }
         ]
       }) }}
-
 
       <!-- Funding -->
       <h2 class="govuk-heading-m">Funding</h2>

@@ -38,16 +38,13 @@
         value: data['project-name']
       }) }}
 
-      <!-- Amount of grant to your organisation in euros -->
+      <!-- Total amount awarded to your project in euros -->
       {{ govukInput({
         label: {
-          text: "Amount of grant to your organisation in euros",
+          text: "Total amount awarded to your project in euros",
           classes: "govuk-label--s"
         },
         classes: "govuk-input--width-10",
-        hint: {
-          text: "Enter the total amount granted when the project was awarded"
-        },
         id: "funding-contribution",
         name: "funding-contribution",
         value: data['funding-contribution']
