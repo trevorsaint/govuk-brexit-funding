@@ -50,3 +50,14 @@ $govuk-assets-path: '/govuk/assets/';
   padding-bottom: govuk-spacing(6);
   padding-top: govuk-spacing(6);
 }
+
+
+ol.govuk-list.govuk-list--alpha {
+    list-style: lower-latin;
+    margin-left: 20px;
+}
+
+ol.govuk-list.govuk-list--roman {
+    list-style: lower-roman;
+    margin-left: 20px;
+}
