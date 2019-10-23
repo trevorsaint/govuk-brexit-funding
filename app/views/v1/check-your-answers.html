@@ -133,7 +133,7 @@
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "/v1/organisation-details",
                   text: "Change",
                   visuallyHiddenText: "organisation name"
                 }
@@ -151,7 +151,7 @@
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "/v1/organisation-details",
                   text: "Change",
                   visuallyHiddenText: "home address"
                 }
@@ -178,7 +178,7 @@
             actions: {
               items: [
                 {
-                  href: "/v1/funding-details",
+                  href: "/v1/what-is-the-grant-agreement-number",
                   text: "Change",
                   visuallyHiddenText: "grant agreement number"
                 }
@@ -195,7 +195,7 @@
             actions: {
               items: [
                 {
-                  href: "/v1/funding-details",
+                  href: "/v1/what-programme-do-you-receive-funding-from",
                   text: "Change",
                   visuallyHiddenText: "name of programme"
                 }
@@ -212,7 +212,7 @@
             actions: {
               items: [
                 {
-                  href: "/v1/funding-details",
+                  href: "/v1/project-details",
                   text: "Change",
                   visuallyHiddenText: "project name"
                 }
@@ -221,7 +221,7 @@
           },
           {
             key: {
-              text: "EU funding contribution"
+              text: "Grant amount"
             },
             value: {
               html: data["funding-contribution"]
@@ -229,9 +229,9 @@
             actions: {
               items: [
                 {
-                  href: "/v1/funding-details",
+                  href: "/v1/project-details",
                   text: "Change",
-                  visuallyHiddenText: "EU funding contribution"
+                  visuallyHiddenText: "grant amount"
                 }
               ]
             }
@@ -246,7 +246,7 @@
             actions: {
               items: [
                 {
-                  href: "/v1/funding-details",
+                  href: "/v1/project-details",
                   text: "Change",
                   visuallyHiddenText: "start date"
                 }
@@ -263,7 +263,7 @@
             actions: {
               items: [
                 {
-                  href: "/v1/funding-details",
+                  href: "/v1/project-details",
                   text: "Change",
                   visuallyHiddenText: "end date"
                 }
@@ -273,9 +273,9 @@
         ]
       }) }}
 
-      <h2 class="govuk-heading-m">Now send your application</h2>
+      <h2 class="govuk-heading-m">Now send your details</h2>
 
-      <p class="govuk-body">By submitting this notification you authorise the Cabinet Office Grants Management Function to share your information with the responsible department to which you have identified yourself as a grant recipient.</p>
+      <p class="govuk-body">By submitting this form you authorise the Cabinet Office Grants Management Function to share your information with the government department responsible for the fund you’ve said you receive.</p>
 
       <form method="post">
 
