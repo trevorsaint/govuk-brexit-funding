@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+
+
+{% block pageTitle %}
+  Project details - GOV.UK
+{% endblock %}
+
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "/v1/what-programme-do-you-receive-funding-from"
+}) }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Project details</h1>
+
+    <form method="post">
+
+      <!-- Name -->
+      {{ govukInput({
+        label: {
+          text: "Name",
+          classes: "govuk-label--s"
+        },
+        hint: {
+          text: "Enter the project name as it appears on the grant agreement or bid"
+        },
+        id: "project-name",
+        name: "project-name",
+        value: data['project-name']
+      }) }}
+
+      <!-- Amount of grant to your organisation in euros -->
+      {{ govukInput({
+        label: {
+          text: "Amount of grant to your organisation in euros",
+          classes: "govuk-label--s"
+        },
+        classes: "govuk-input--width-10",
+        hint: {
+          text: "Enter the total amount granted when the project was awarded"
+        },
+        id: "funding-contribution",
+        name: "funding-contribution",
+        value: data['funding-contribution']
+      }) }}
+
+      <!-- Start date -->
+      {{ govukDateInput({
+        id: "start-date",
+        namePrefix: "start-date",
+        fieldset: {
+          legend: {
+            text: "Start date",
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        hint: {
+          text: "For example, 22 10 2019"
+        }
+      }) }}
+
+      <!-- End date -->
+      {{ govukDateInput({
+        id: "end-date",
+        namePrefix: "end-date",
+        fieldset: {
+          legend: {
+            text: "End date",
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        hint: {
+          text: "For example, 22 10 2019"
+        }
+      }) }}
+
+      <!-- Submit -->
+      {{ govukButton({
+        text: "Next"
+      }) }}
+
+    </form>
+
+  </div>
+
+</div>
+
+{% endblock %}

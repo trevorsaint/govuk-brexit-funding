@@ -9,7 +9,7 @@
 {% block beforeContent %}
 {{ govukBackLink({
   text: "Back",
-  href: "/v1/contact-information"
+  href: "/v1/who-should-we-contact-about-the-grant-award"
 }) }}
 {% endblock %}
 
@@ -22,7 +22,7 @@
 
     <h1 class="govuk-heading-xl">Organisation type</h1>
 
-    <p>Your organisation must be identified as a UK partner in the grant agreement to receive funding.</p>
+    <p>The organisation must be a UK partner in the grant agreement.</p>
 
     <p>If your organisation type is not listed, please select ‘Other’.</p>
 
@@ -85,7 +85,7 @@
               classes: "govuk-label--s"
             },
             hint: {
-              text: "A not-for-profit public sector body or charity working on innovation"
+              text: "A not for profit public sector body or charity working on innovation"
             },
             checked: checked('organisation-type', 'Public sector, charity or non Je-S registered research organisation')
           },

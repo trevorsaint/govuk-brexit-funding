@@ -4,49 +4,49 @@ const router = express.Router();
 const helpers = require('./helpers');
 
 
-// Start page
+// 1. Start page -> Contact information
 router.post('/v1', function(req, res) {
   res.redirect('index');
 });
 
 
-// Contact information > Organisation type
-router.post('/v1/contact-information',function(req, res) {
+// 2. Who should we contact about the grant award? -> Organisation type
+router.post('/v1/who-should-we-contact-about-the-grant-award',function(req, res) {
   res.redirect('organisation-type');
 });
 
 
-// Organisation type > Organisation details
+// 3. Organisation type -> Organisation details
 router.post('/v1/organisation-type',function(req, res) {
   res.redirect('organisation-details');
 });
 
 
-// Organisation details > Funding details
+// 4. Organisation details -> What is the grant agreement number?
 router.post('/v1/organisation-details',function(req, res) {
-  res.redirect('funding-details');
+  res.redirect('what-is-the-grant-agreement-number');
 });
 
 
-// Check your answers with session data
-router.get('/v1/check-your-answers', function(req, res) {
-
-  var pageObject = {
-   fullName: req.session.data['full-name']
-  }
-
-  res.render('v1/check-your-answers', pageObject);
-
+// 5. What is the grant agreement number? -> What programme do you receive funding from?
+router.post('/v1/what-is-the-grant-agreement-number',function(req, res) {
+  res.redirect('what-programme-do-you-receive-funding-from');
 });
 
 
-// Funding details > Check your answers
-router.post('/v1/funding-details',function(req, res) {
+// 6. What programme do you receive funding from? -> Project details
+router.post('/v1/what-programme-do-you-receive-funding-from',function(req, res) {
+  res.redirect('project-details');
+});
+
+
+// 7. Project details -> Check your answers
+router.post('/v1/project-details',function(req, res) {
   res.redirect('check-your-answers');
 });
 
 
-// Check your answers > Confirmation
+// 8. Check your answers -> Confirmation
 router.post('/v1/check-your-answers',function(req, res) {
   res.redirect('confirmation');
 });

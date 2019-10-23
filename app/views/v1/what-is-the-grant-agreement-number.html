@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+
+{% block pageTitle %}
+  What is the grant agreement number - GOV.UK
+{% endblock %}
+
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "/v1/organisation-details"
+}) }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">What is the grant agreement number?</h1>
+
+    <p>If you do not have a grant agreement number, select next.</p>
+
+    <form method="post">
+
+      {{ govukInput({
+        label: {
+          text: "Grant agreement number",
+          classes: "govuk-label--s govuk-visually-hidden"
+        },
+        classes: "govuk-input--width-20",
+        id: "grant-agreement-number",
+        name: "grant-agreement-number",
+        value: data['grant-agreement-number']
+      }) }}
+
+      {{ govukButton({
+        text: "Next"
+      }) }}
+
+    </form>
+
+  </div>
+
+</div>
+
+{% endblock %}
