@@ -1,4 +1,5 @@
 const moment = require('moment');
+moment.suppressDeprecationWarnings = true; // REMOVE when we have a solution
 
 
 module.exports = function (env) {
