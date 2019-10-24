@@ -24,7 +24,7 @@
 
     <p>If you have not yet received funding, select the programme you applied to.</p>
 
-    <form method="post">
+    <form method="post" action="/v1/project-details">
 
       <!-- Name of programme -->
       {{ govukRadios({
@@ -91,7 +91,7 @@
       }) }}
 
       {{ govukButton({
-        text: "Next"
+        text: "Save and continue"
       }) }}
 
     </form>

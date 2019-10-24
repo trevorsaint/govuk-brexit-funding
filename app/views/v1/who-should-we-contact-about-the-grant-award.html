@@ -24,7 +24,7 @@
 
     <p>We suggest using your Legal Entity Appointed Representative (LEAR).</p>
 
-    <form method="post">
+    <form method="post" action="{{ formAction }}">
 
       <!-- Full name -->
       {{ govukInput({
@@ -89,9 +89,8 @@
       }) }}
 
 
-      <!-- Submit -->
       {{ govukButton({
-        text: "Next"
+        text: "Save and continue"
       }) }}
 
     </form>

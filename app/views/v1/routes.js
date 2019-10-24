@@ -1,15 +1,9 @@
-// const express = require("express");
-// const router  = express.Router();
-
-
-// router.use('/', require('./app/routes.js'));
-
-
-// module.exports = router;
-
-
 const express = require("express");
 const router  = express.Router();
+
+
+// v1 routes
+router.use('/', require('./views/v1/routes.js'));
 
 
 // 1. Start page

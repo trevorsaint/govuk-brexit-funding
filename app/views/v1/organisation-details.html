@@ -22,7 +22,7 @@
 
     <h1 class="govuk-heading-xl">Organisation details</h1>
 
-      <form method="post">
+      <form method="post" action="/v1/do-you-have-a-grant-agreement-number">
 
         <!-- Name -->
         {{ govukInput({
@@ -39,19 +39,19 @@
         }) }}
 
 
-        <!-- Company House or Charity Commission number -->
+        <!-- Companies House or Charity Commission number -->
         {{ govukInput({
-          id: "company-house-or-charity-commission-number",
-          name: "company-house-or-charity-commission-number",
+          id: "companies-house-or-charity-commission-number",
+          name: "companies-house-or-charity-commission-number",
           type: "text",
           label: {
-            text: "Company House or Charity Commission number",
+            text: "Companies House or Charity Commission number",
             classes: "govuk-label--s"
           },
           hint: {
-            text: "If you have both, enter your Company House number"
+            text: "If you have both, enter your Companies House number"
           },
-          value: data["company-house-or-charity-commission-number"]
+          value: data["companies-house-or-charity-commission-number"]
         }) }}
 
 
@@ -113,9 +113,8 @@
 
       {% endcall %}
 
-      <!-- Submit -->
       {{ govukButton({
-        text: "Next"
+        text: "Save and continue"
       }) }}
 
     </form>

@@ -24,7 +24,7 @@
 
     <p>The organisation must be a UK partner in the grant agreement.</p>
 
-    <form method="post">
+    <form method="post" action="/v1/organisation-details">
 
       {% set otherOrganisation %}
         {{ govukInput({
@@ -101,9 +101,8 @@
         ]
       }) }}
 
-      <!-- Submit -->
       {{ govukButton({
-        text: "Next"
+        text: "Save and continue"
       }) }}
 
     </form>

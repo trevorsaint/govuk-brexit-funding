@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+
+{% block pageTitle %}
+  Does the project have partners or participants outside the UK? - GOV.UK
+{% endblock %}
+
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "/v1/project-details"
+}) }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Does the project have partners or participants outside the UK?</h1>
+
+    <form method="post" action="/v1/check-your-answers">
+
+      {{ govukRadios({
+        idPrefix: "does-the-project-have-partners-or-participants-outside-the-uk",
+        name: "does-the-project-have-partners-or-participants-outside-the-uk",
+        items: [
+          {
+            value: "Yes",
+            html: 'Yes<span class=\"govuk-visually-hidden">, the project has partners or participants outside the UK</span>',
+            checked: checked('does-the-project-have-partners-or-participants-outside-the-uk', 'Yes')
+          },
+          {
+            value: "No",
+            html: 'No<span class="govuk-visually-hidden">, the project does not have partners or participants outside the UK</span>',
+            checked: checked('does-the-project-have-partners-or-participants-outside-the-uk', 'No')
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+
+    </form>
+
+  </div>
+
+</div>
+
+{% endblock %}

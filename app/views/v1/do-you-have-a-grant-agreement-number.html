@@ -22,7 +22,9 @@
 
     <h1 class="govuk-heading-xl">Do you have a grant agreement number?</h1>
 
-    <form method="post">
+    <p>It might be called a project ID, proposal ID or action number.</p>
+
+    <form method="post" action="/v1/what-programme-do-you-receive-funding-from">
 
       {% set grantAgreementNumber %}
         {{ govukInput({
@@ -54,7 +56,7 @@
       }) }}
 
       {{ govukButton({
-        text: "Next"
+        text: "Save and continue"
       }) }}
 
     </form>

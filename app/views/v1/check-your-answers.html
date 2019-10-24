@@ -9,7 +9,7 @@
 {% block beforeContent %}
 {{ govukBackLink({
   text: "Back",
-  href: "/v1/project-details"
+  href: "/v1/does-the-project-have-partners-or-participants-outside-the-uk"
 }) }}
 {% endblock %}
 
@@ -21,8 +21,8 @@
 
       <h1 class="govuk-heading-xl">Check your answers</h1>
 
-      <!-- Who should we contact about the grant award? -->
-      <h2 class="govuk-heading-m">Who should we contact about the grant award?</h2>
+      <!-- Contact details -->
+      <h2 class="govuk-heading-m">Contact details</h2>
 
       {{ govukSummaryList({
         classes: "govuk-!-margin-bottom-9",
@@ -123,17 +123,17 @@
           },
           {
             key: {
-              text: "Company House or Charity Commission number"
+              text: "Companies House or Charity Commission number"
             },
             value: {
-              text: data["company-house-or-charity-commission-number"]
+              text: data["companies-house-or-charity-commission-number"]
             },
             actions: {
               items: [
                 {
                   href: "/v1/organisation-details",
                   text: "Change",
-                  visuallyHiddenText: "Company House or Charity Commission number"
+                  visuallyHiddenText: "Companies House or Charity Commission number"
                 }
               ]
             }
@@ -176,8 +176,8 @@
         ]
       }) }}
 
-      <!-- Funding -->
-      <h2 class="govuk-heading-m">Funding</h2>
+      <!-- Project -->
+      <h2 class="govuk-heading-m">Project</h2>
 
       {{ govukSummaryList({
         classes: 'govuk-!-margin-bottom-9',
@@ -283,17 +283,49 @@
                 }
               ]
             }
+          },
+          {
+            key: {
+              text: "Non UK partners"
+            },
+            value: {
+              text: data["does-the-project-have-partners-or-participants-outside-the-uk"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "/v1/does-the-project-have-partners-or-participants-outside-the-uk",
+                  text: "Change",
+                  visuallyHiddenText: "non UK partners"
+                }
+              ]
+            }
           }
         ]
       }) }}
 
-      <h2 class="govuk-heading-m">Now send your details</h2>
+      <form method="post" action="/v1/confirmation">
 
-      <p class="govuk-body">By submitting this form you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
-
-      <form method="post">
+        {{ govukTextarea({
+          name: "additional-information",
+          id: "additional-information",
+          classes: "govuk-label--s",
+          label: {
+            text: "Add a note",
+            classes: "govuk-label--m"
+          },
+          hint: {
+            text: "Enter any information you think we need to know"
+          }
+        }) }}
 
         <input type="hidden" name="answers-checked" value="true">
+
+        <h2 class="govuk-heading-m">Now send your details</h2>
+
+        <p>By submitting this form you authorise the Cabinet Office Grants Management Function to share your information with the government department responsible for the EU programme you receive funding from.</p>
+
+        <!--p>By submitting this form you’re confirming that, to the best of your knowledge, the details you’re providing are correct.</p-->
 
         {{ govukButton({
           text: "Accept and send"
