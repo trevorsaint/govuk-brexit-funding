@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+
+
+{% block pageTitle %}
+  Project details - GOV.UK
+{% endblock %}
+
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "/v1/what-programme-do-you-receive-funding-from"
+}) }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Project details</h1>
+
+    <form method="post">
+
+      <!-- Name -->
+      {{ govukInput({
+        label: {
+          text: "Name",
+          classes: "govuk-label--s"
+        },
+        hint: {
+          text: "Enter the project name as it appears on the grant agreement or bid"
+        },
+        id: "project-name",
+        name: "project-name",
+        value: data['project-name']
+      }) }}
+
+      <!-- Total amount awarded to your organisation in euros -->
+      {{ govukInput({
+        label: {
+          text: "Total amount awarded to your organisation in euros",
+          classes: "govuk-label--s"
+        },
+        classes: "govuk-input--width-10",
+        id: "total-amount-awarded",
+        name: "total-amount-awarded",
+        value: data['total-amount-awarded']
+      }) }}
+
+      <!-- Start date -->
+      {{ govukDateInput({
+        id: "start-date",
+        namePrefix: "start-date",
+        fieldset: {
+          legend: {
+            text: "Start date",
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        hint: {
+          text: "For example, 12 11 2014"
+        },
+        items: [{
+          name: "day",
+          value: data["start-date-day"],
+          classes: "govuk-input--width-2"
+        },{
+          name: "month",
+          value: data["start-date-month"],
+          classes: "govuk-input--width-2"
+        },{
+          name: "year",
+          value: data["start-date-year"],
+          classes: "govuk-input--width-4"
+        }]
+      }) }}
+
+      <!-- End date -->
+      {{ govukDateInput({
+        id: "end-date",
+        namePrefix: "end-date",
+        fieldset: {
+          legend: {
+            text: "End date",
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        hint: {
+          text: "For example, 12 11 2020"
+        },
+        items: [{
+          name: "day",
+          value: data["end-date-day"],
+          classes: "govuk-input--width-2"
+        },{
+          name: "month",
+          value: data["end-date-month"],
+          classes: "govuk-input--width-2"
+        },{
+          name: "year",
+          value: data["end-date-year"],
+          classes: "govuk-input--width-4"
+        }]
+      }) }}
+
+      <!-- Submit -->
+      {{ govukButton({
+        text: "Next"
+      }) }}
+
+    </form>
+
+  </div>
+
+</div>
+
+{% endblock %}

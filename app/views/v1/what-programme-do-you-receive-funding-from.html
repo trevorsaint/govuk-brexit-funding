@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+
+
+{% block pageTitle %}
+  What programme do you receive funding from? - GOV.UK
+{% endblock %}
+
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "/v1/do-you-have-a-grant-agreement-number"
+}) }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">What programme do you receive funding from?</h1>
+
+    <p>If you have not yet received funding, select the programme you applied to.</p>
+
+    <form method="post">
+
+      <!-- Name of programme -->
+      {{ govukRadios({
+        idPrefix: "name-of-programme",
+        name: "name-of-programme",
+        fieldset: {
+          legend: {
+            text: "Name of programme",
+            classes: "govuk-fieldset__legend--s govuk-visually-hidden"
+          }
+        },
+        items: [
+          {
+            value: "Civil Protection Mechanism",
+            text: "Civil Protection Mechanism",
+            checked: checked("name-of-programme", "Civil Protection Mechanism")
+          },
+          {
+            value: "Competitiveness of Small and Medium-Sized Enterprises (COSME)",
+            text: "Competitiveness of Small and Medium-Sized Enterprises (COSME)",
+            checked: checked("name-of-programme", "Competitiveness of Small and Medium-Sized Enterprises (COSME)")
+          },
+          {
+            value: "Connecting Europe Facility (CEF) telecoms",
+            text: "Connecting Europe Facility (CEF) telecoms",
+            checked: checked("name-of-programme", "Connecting Europe Facility (CEF) telecoms")
+          },
+          {
+            value: "Creative Europe",
+            text: "Creative Europe",
+            checked: checked("name-of-programme", "Creative Europe")
+          },
+          {
+            value: "Employment and Social Innovation (EaSI)",
+            text: "Employment and Social Innovation (EaSI)",
+            checked: checked("name-of-programme", "Employment and Social Innovation (EaSI)")
+          },
+          {
+            value: "Erasmus+",
+            text: "Erasmus+",
+            checked: checked("name-of-programme", "Erasmus+")
+          },
+          {
+            value: "Europe for Citizens",
+            text: "Europe for Citizens",
+            checked: checked("name-of-programme", "Europe for Citizens")
+          },
+          {
+            value: "European Solidarity Corps",
+            text: "European Solidarity Corps",
+            checked: checked("name-of-programme", "European Solidarity Corps")
+          },
+          {
+            value: "Health for Growth",
+            text: "Health for Growth",
+            checked: checked("name-of-programme", "Health for Growth")
+          },
+          {
+            value: "Rights, Equality, and Citizenship Programme (RECP)",
+            text: "Rights, Equality, and Citizenship Programme (RECP)",
+            checked: checked("name-of-programme", "Rights, Equality, and Citizenship Programme (RECP)")
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Next"
+      }) }}
+
+    </form>
+
+  </div>
+
+</div>
+
+{% endblock %}
