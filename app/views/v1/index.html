@@ -44,14 +44,19 @@
         <li>Rights, Equality, and Citizenship Programme (RECP)</li>
       </ul>
 
+      {{ govukInsetText({
+        html: 'There’s a different way to register if you receive <a href="https://apply-for-innovation-funding.service.gov.uk/eu-grant/overview">Horizon 2020 funding</a>.'
+      }) }}
+
       <p>Do not register if:</p>
       <ul class="govuk-list govuk-list--bullet">
-        <li>you receive or have applied for funding from a different EU programme, such as Horizon 2020 - <a href="https://www.gov.uk/guidance/european-and-domestic-funding-after-brexit">check what you need to do instead</a></li>
+        <li>you receive or have applied for funding from a different EU programme - <a href="https://www.gov.uk/guidance/european-and-domestic-funding-after-brexit">check what you need to do instead</a></li>
         <li>you’re already in contact with a government department about what will happen to your funding after Brexit</li>
+        <li>you’ve already registered on GOV.UK</li>
         <li>your project will have finished before Brexit but the final payment will come after Brexit - <a href="mailto: helpdesk.grants.registration@cabinetoffice.gov.uk">contact the helpdesk</a> if you’re told that you will not receive the final payment</li>
       </ul>
 
-      <p class="govuk-body">Registering takes around 10 minutes.</p>
+      <p class="govuk-body">Registering takes about 10 minutes.</p>
 
       {{ govukButton({
         text: "Start now",

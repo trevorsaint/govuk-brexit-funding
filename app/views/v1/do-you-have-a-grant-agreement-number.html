@@ -9,7 +9,7 @@
 {% block beforeContent %}
 {{ govukBackLink({
   text: "Back",
-  href: "/v1/organisation-details"
+  href: "/v1/do-you-have-a-companies-house-or-charity-commission-number"
 }) }}
 {% endblock %}
 
@@ -24,7 +24,7 @@
 
     <p>It might be called a project ID, proposal ID or action number.</p>
 
-    <form method="post" action="/v1/what-programme-do-you-receive-funding-from">
+    <form method="post" action="{{ formAction }}">
 
       {% set grantAgreementNumber %}
         {{ govukInput({
@@ -33,7 +33,8 @@
           label: {
             text: "Enter your grant agreement number"
           },
-          classes: "govuk-!-width-two-thirds"
+          classes: "govuk-!-width-two-thirds",
+          value: data["grant-agreement-number"]
         }) }}
       {% endset -%}
 
@@ -42,15 +43,17 @@
         name: "do-you-have-a-grant-agreement-number",
         items: [
           {
-            value: "yes",
-            html: 'Yes<span class=\"govuk-visually-hidden">, we have a grant agreement number</span>',
+            value: "Yes",
+            html: 'Yes<span class="govuk-visually-hidden">, we have a grant agreement number</span>',
             conditional: {
               html: grantAgreementNumber
-            }
+            },
+            checked: checked("do-you-have-a-grant-agreement-number", "Yes")
           },
           {
-            value: "no",
-            html: 'No<span class="govuk-visually-hidden">, we don’t have a grant agreement number</span>'
+            value: "No",
+            html: 'No<span class="govuk-visually-hidden">, we don’t have a grant agreement number</span>',
+            checked: checked("do-you-have-a-grant-agreement-number", "No")
           }
         ]
       }) }}

@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+
+{% block pageTitle %}
+  Do you have a Companies House or Charity Commission number? - GOV.UK
+{% endblock %}
+
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "/v1/organisation-details"
+}) }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Do you have a Companies House or Charity Commission number?</h1>
+
+    <form method="post" action="{{ formAction }}">
+
+      {% set companiesHouseNumber %}
+        {{ govukInput({
+          id: "companies-house-number",
+          name: "companies-house-number",
+          label: {
+            text: "If you have both, enter your Companies House number"
+          },
+          classes: "govuk-!-width-two-thirds",
+          value: data["companies-house-number"]
+        }) }}
+      {% endset -%}
+
+      {{ govukRadios({
+        idPrefix: "do-you-have-a-companies-house-or-charity-commission-number",
+        name: "do-you-have-a-companies-house-or-charity-commission-number",
+        items: [
+          {
+            value: "Yes",
+            html: 'Yes<span class="govuk-visually-hidden">, we have a number</span>',
+            conditional: {
+              html: companiesHouseNumber
+            },
+            checked: checked("do-you-have-a-companies-house-or-charity-commission-number", "Yes")
+          },
+          {
+            value: "No",
+            html: 'No<span class="govuk-visually-hidden">, we don’t have a number</span>',
+            checked: checked("do-you-have-a-companies-house-or-charity-commission-number", "No")
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+
+    </form>
+
+  </div>
+
+</div>
+
+{% endblock %}

@@ -123,23 +123,6 @@
           },
           {
             key: {
-              text: "Companies House or Charity Commission number"
-            },
-            value: {
-              text: data["companies-house-or-charity-commission-number"]
-            },
-            actions: {
-              items: [
-                {
-                  href: "/v1/organisation-details",
-                  text: "Change",
-                  visuallyHiddenText: "Companies House or Charity Commission number"
-                }
-              ]
-            }
-          },
-          {
-            key: {
               text: "Name"
             },
             value: {
@@ -172,6 +155,23 @@
                 }
               ]
             }
+          },
+          {
+            key: {
+              text: "Companies House or Charity Commission number"
+            },
+            value: {
+              text: data["companies-house-number"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "/v1/do-you-have-a-companies-house-or-charity-commission-number",
+                  text: "Change",
+                  visuallyHiddenText: "Companies House or Charity Commission number"
+                }
+              ]
+            }
           }
         ]
       }) }}
@@ -192,7 +192,7 @@
             actions: {
               items: [
                 {
-                  href: "/v1/what-is-the-grant-agreement-number",
+                  href: "/v1/do-you-have-a-grant-agreement-number",
                   text: "Change",
                   visuallyHiddenText: "grant agreement number"
                 }
@@ -316,7 +316,8 @@
           },
           hint: {
             text: "Enter any information you think we need to know"
-          }
+          },
+          value: data["additional-information"]
         }) }}
 
         <input type="hidden" name="answers-checked" value="true">
