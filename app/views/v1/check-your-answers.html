@@ -123,17 +123,17 @@
           },
           {
             key: {
-              text: "Name"
+              text: "Project name"
             },
             value: {
-              text: data["organisation-name"]
+              text: data["project-name"]
             },
             actions: {
               items: [
                 {
                   href: "/v1/organisation-details",
                   text: "Change",
-                  visuallyHiddenText: "organisation name"
+                  visuallyHiddenText: "project name"
                 }
               ]
             }
@@ -311,7 +311,7 @@
           id: "additional-information",
           classes: "govuk-label--s",
           label: {
-            text: "Add a note",
+            text: "Add a note (optional)",
             classes: "govuk-label--m"
           },
           hint: {

@@ -24,18 +24,18 @@
 
       <form method="post" action="{{ formAction }}">
 
-        <!-- Name -->
+        <!-- Project name -->
         {{ govukInput({
           label: {
-            text: "Name",
+            text: "Project name",
             classes: "govuk-label--s"
           },
           hint: {
-            text: "Enter the name as it appears on the grant agreement or bid"
+            text: "As the name appears on the grant agreement or bid"
           },
-          id: "organisation-name",
-          name: "organisation-name",
-          value: data["organisation-name"]
+          id: "project-name",
+          name: "project-name",
+          value: data["project-name"]
         }) }}
 
 
@@ -77,7 +77,7 @@
 
         {{ govukInput({
           label: {
-            text: "County"
+            text: "County (optional)"
           },
           classes: "govuk-!-width-two-thirds",
           id: "address-county",
