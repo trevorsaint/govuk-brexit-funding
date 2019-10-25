@@ -24,18 +24,18 @@
 
       <form method="post" action="{{ formAction }}">
 
-        <!-- Project name -->
+        <!-- Organisation name -->
         {{ govukInput({
           label: {
-            text: "Project name",
+            text: "Organisation name",
             classes: "govuk-label--s"
           },
           hint: {
             text: "As the name appears on the grant agreement or bid"
           },
-          id: "project-name",
-          name: "project-name",
-          value: data["project-name"]
+          id: "organisation-name",
+          name: "organisation-name",
+          value: data["organisation-name"]
         }) }}
 
 
