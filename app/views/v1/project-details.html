@@ -41,11 +41,11 @@
       <!-- Total amount awarded to your organisation in euros -->
       {{ govukInput({
         label: {
-          text: "Total amount awarded to your organisation in euros",
+          text: "Total amount awarded to your organisation in euros (if you know it)",
           classes: "govuk-label--s"
         },
         hint: {
-          text: "Enter the amount if it’s on the grant agreement or bid"
+          text: "For example 12,000"
         },
         classes: "govuk-input--width-10",
         id: "total-amount-awarded",
@@ -59,12 +59,12 @@
         namePrefix: "start-date",
         fieldset: {
           legend: {
-            text: "Start date",
+            text: "Start date (if you know it)",
             classes: "govuk-fieldset__legend--s"
           }
         },
         hint: {
-          text: "Enter the date if it’s on the grant agreement or bid, for example 12 11 2014"
+          text: "For example 12 11 2014"
         },
         items: [{
           name: "day",
@@ -87,12 +87,12 @@
         namePrefix: "end-date",
         fieldset: {
           legend: {
-            text: "End date",
+            text: "End date (if you know it)",
             classes: "govuk-fieldset__legend--s"
           }
         },
         hint: {
-          text: "Enter the date if it’s on the grant agreement or bid, for example 12 11 2020"
+          text: "For example 12 11 2020"
         },
         items: [{
           name: "day",
