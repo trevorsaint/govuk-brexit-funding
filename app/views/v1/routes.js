@@ -56,7 +56,7 @@ router.get('/v1/organisation-details', (req, res) => {
   if (getPath(req) == "/v1/check-your-answers") {
     action = "/v1/check-your-answers";
   } else {
-    action = "/v1/do-you-have-a-companies-house-or-charity-commission-number";
+    action = "/v1/do-you-have-a-company-or-charity-registration-number";
   }
 
   res.render('v1/organisation-details', { formAction: action });
@@ -65,7 +65,7 @@ router.get('/v1/organisation-details', (req, res) => {
 
 
 // Do you have a Companies House or Charity Commission number?
-router.get('/v1/do-you-have-a-companies-house-or-charity-commission-number', (req, res) => {
+router.get('/v1/do-you-have-a-company-or-charity-registration-number', (req, res) => {
 
   let action;
 
@@ -75,7 +75,7 @@ router.get('/v1/do-you-have-a-companies-house-or-charity-commission-number', (re
     action = "/v1/do-you-have-a-grant-agreement-number";
   }
 
-  res.render('v1/do-you-have-a-companies-house-or-charity-commission-number', { formAction: action });
+  res.render('v1/do-you-have-a-company-or-charity-registration-number', { formAction: action });
 
 });
 
