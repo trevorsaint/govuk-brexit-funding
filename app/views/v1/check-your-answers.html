@@ -339,10 +339,13 @@
 
         <h2 class="govuk-heading-m">Now send your details</h2>
 
-        <p>By submitting this form you authorise the Cabinet Office Grants Management Function to share your information with the government department responsible for the EU programme you receive funding from.</p>
-
         {{ govukButton({
-          text: "Accept and send"
+          text: "Confirm and send"
+        }) }}
+
+        {{ govukInsetText({
+          classes: "govuk-!-margin-top-0",
+          html: 'The information you’ve given will be shared with the government departments responsible for the EU programme you receive funding or will receive funding from. Find out <a class="govuk-link govuk-link--no-visited-state" href="https://gov.uk/government/publications/privacy-notice-for-grants-management-function-recipient-registration/privacy-notice-for-grants-management-function-recipient-registration">how we use your personal data</a>.'
         }) }}
 
       </form>
